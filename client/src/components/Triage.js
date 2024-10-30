@@ -1,19 +1,23 @@
 import React from 'react';
-import PatientList from './PatientList';
 
-function Triage({ patients, updatePatientStatus }) {
-  const waitingPatients = patients.filter(patient => patient.status === 'Waiting');
+function Triage({ patients, onTriage }) {
+  const untriaged = patients.filter(patient => patient.triageLevel === 0 && !patient.discharged);
 
   return (
     <div className="triage">
-        <br></br>
-        <br></br>
       <h2>Triage</h2>
-      <PatientList 
-        patients={waitingPatients}
-        updatePatientStatus={updatePatientStatus}
-        actions={['In Treatment', 'Discharged']}
-      />
+      <ul className="patient-list">
+        {untriaged.map(patient => (
+          <li key={patient._id}>
+            <strong>{patient.name}</strong> ({patient.age}) - {patient.condition}
+            <div className="actions">
+              <button onClick={() => onTriage(patient._id, 1)}>Low</button>
+              <button onClick={() => onTriage(patient._id, 2)}>Medium</button>
+              <button onClick={() => onTriage(patient._id, 3)}>High</button>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

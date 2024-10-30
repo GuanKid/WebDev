@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 
-function PatientCheckIn({ addPatient }) {
+function PatientCheckIn({ onCheckIn }) {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
-  const [chiefComplaint, setChiefComplaint] = useState('');
+  const [condition, setCondition] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPatient({ name, age, chiefComplaint });
+    onCheckIn({ name, age: parseInt(age), condition, triageLevel: 0 });
     setName('');
     setAge('');
-    setChiefComplaint('');
+    setCondition('');
   };
 
   return (
@@ -32,9 +32,9 @@ function PatientCheckIn({ addPatient }) {
           required
         />
         <textarea
-          placeholder="Chief Complaint"
-          value={chiefComplaint}
-          onChange={(e) => setChiefComplaint(e.target.value)}
+          placeholder="Condition"
+          value={condition}
+          onChange={(e) => setCondition(e.target.value)}
           required
         ></textarea>
         <button type="submit">Check In</button>
