@@ -1,0 +1,187 @@
+.App {
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.patient-check-in, .triage, .dashboard {
+  flex: 1;
+  margin: 0 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea, button {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.patient-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.patient-list li {
+  background-color: #f0f0f0;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.actions {
+  margin-top: 5px;
+}
+
+.actions button {
+  margin-right: 5px;
+}
+
+.stats {
+  margin-top: 20px;
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Add these styles to your existing App.css */
+
+.dashboard {
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .dashboard.light {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .dashboard.dark {
+    background-color: #333;
+    color: #f0f0f0;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-info svg {
+    margin-right: 10px;
+  }
+  
+  .header-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 10px;
+  }
+  
+  .logout-btn {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logout-btn svg {
+    margin-right: 5px;
+  }
+  
+  .discharge-all-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .discharge-all-btn:hover {
+    background-color: #c82333;
+  }
+  
+  .stats {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark-mode {
+    background-color: #222;
+    color: #f0f0f0;
+  }
+
+  .App {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 300px;
+    background-color: #f0f0f0;
+    height: 100%;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 0;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  .sidebar.open + .main-content {
+    margin-left: 300px;
+  }
+  
+  .toggle-sidebar {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+    }
+  
+    .sidebar.open + .main-content {
+      margin-left: 0;
+    }
+  }
